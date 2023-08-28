@@ -14,21 +14,25 @@ export function UploadFiles(){
   };
 
   const sendFilesToAPI = async () => {
-    const apiEndpoint = 'API_ENDPOINT_URL';
-    const step1dataJSON = sessionStorage.getItem('step1data');
-    const step2dataJSON = sessionStorage.getItem('step2data');
-    const step3dataJSON = sessionStorage.getItem('step3data');
+    const apiEndpoint = 'https://testtuberregisteragent.free.beeceptor.com/favicon.ico';
+    const step1dataJSON = sessionStorage.getItem('step1Data');
+    const step2dataJSON = sessionStorage.getItem('step2Data');
+    const step3dataJSON = sessionStorage.getItem('step3Data');
 
-    const formData = new FormData();
+    
 
     if (!step1dataJSON || !step2dataJSON || !step3dataJSON) {
       console.error('One or more data sets are missing in session storage.');
+      console.log(step1dataJSON);
       return;
   }
 
       const step1data = JSON.parse(step1dataJSON);
+      console.log(step1data.firstName);
       const step2data = JSON.parse(step2dataJSON);
       const step3data = JSON.parse(step3dataJSON);
+
+    const formData = new FormData();
 
     // Append image files to the form data
     imageFiles.forEach((file, index) => {
